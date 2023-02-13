@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :urls
   root :to => "home#index"
-  '/:short_code' :to => "urls#redirect"
+  get "/:short_code" => "urls#redirect"
 end

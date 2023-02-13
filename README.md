@@ -54,6 +54,6 @@ Now, every time we enter a valid short url (example: `http://localhost/0af`), we
 # TODO [WIP]
 
 - [x] Add rspec tests (done)
-- [] Add sidekiq to project, along with redis, in order to perform web crawling, fetch title of page and store it on the database. 
-- [] Add views 
-- [] Add `faker` gem in order to bulk insert fake `url`s through rake task, for populating db purposes. (Nice to have)
+- [ ] Add sidekiq to project, along with redis, in order to perform web crawling, fetch title of page and store it on the database. 
+- [ ] Add views 
+- [ ] Add `faker` gem in order to bulk insert fake `url`s through rake task, for populating db purposes. (Nice to have)
