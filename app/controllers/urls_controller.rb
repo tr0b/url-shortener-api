@@ -10,6 +10,12 @@ class UrlsController < ApplicationController
   def show
   end
 
+  # GET /:lookup_code
+  def redirect
+    url = Url.find_by(url_params)
+    redirect_to url.full_url
+  end
+
   # GET /urls/new
   def new
     @url = Url.new
@@ -21,7 +27,9 @@ class UrlsController < ApplicationController
 
   # POST /urls or /urls.json
   def create
-    @url = Url.new(url_params)
+    url_args = url_params
+    url_args[:short_url] = Shortener::call(url_args[:full_url])
+    @url = Url.new(url_args)
 
     respond_to do |format|
       if @url.save
