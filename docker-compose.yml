@@ -1,4 +1,12 @@
 services:
+  redis:
+    container_name: redis
+    image: 'redis:7.0.8-alpine'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./tmp/redis:/bitnami/redis/data
+
   web:
     build: .
     ports:
@@ -6,3 +14,17 @@ services:
     volumes:
       - .:/usr/src/app
     command: bundle exec rails s -b 0.0.0.0
+
+  sidekiq:
+    container_name: sidekiq
+    build: .
+    tty: true
+    stdin_open: true
+    command: bundle exec sidekiq
+    depends_on:
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+
