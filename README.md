@@ -7,9 +7,14 @@ Make sure you have the following pre-requisites before setting up the project:
 
 We are using `Docker` in order to handle all dependencies in standard containers. Therefore this should work in any OS that supports Docker (Windows, Linux or MacOS).
 
-Clone the repository, checkout to the `main` branch `git checkout main` and build the containers.
+
+First, clone the repository, checkout to the `main` branch `git checkout main` and build the containers.
 
 ```docker-compose build```
+
+Then, create a `.env` file in the root directory, setting up the JOB WORK DIR redis variable
+
+```echo "JOB_WORKER_URL=redis://redis:6379/0" >> .env```
 
 Afterwards, run the containers in order to start the rails project
 
