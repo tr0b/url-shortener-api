@@ -1,5 +1,5 @@
 class Shortener < ApplicationService
-  def initialize(url)
+  def initialize(url:)
     @url = url
     @seed = Url.all.size
   end
@@ -10,7 +10,7 @@ class Shortener < ApplicationService
   end
 
   private
-  ALPHABET = (('a'..'z').to_a + (0..9).to_a).shuffle.join
+  ALPHABET = ( (0..9).to_a + ('a'..'z').to_a).join
 
   # Based on S.O. answer, just perform a Base 36 encoding to the URL ID
   # Base 36 = counting 26 letters from the alphabet + 10 digits from 0 to 9
