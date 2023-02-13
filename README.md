@@ -1,34 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Setup
 
 Make sure you have the following pre-requisites before setting up the project:
 
 * [Docker](https://www.docker.com/), along with [Docker-compose](https://github.com/docker/compose) (Included in Docker for both Windows and MacOS)
 * [SQLite](https://www.sqlite.org/index.html) (Already included in MacOS)
+
+We are using `Docker` in order to handle all dependencies in standard containers. Therefore this should work in any OS that supports Docker (Windows, Linux or MacOS).
 
 Clone the repository, checkout to the `main` branch `git checkout main` and build the containers.
 
@@ -54,6 +31,7 @@ Now, every time we enter a valid short url (example: `http://localhost/0af`), we
 # TODO [WIP]
 
 - [x] Add rspec tests (done)
-- [ ] Add sidekiq to project, along with redis, in order to perform web crawling, fetch title of page and store it on the database. 
-- [ ] Add views 
+- [x] Add `sidekiq` to project, along with `redis`, in order to perform web crawling, fetch title of page and store it on the database. (done)
+- [ ] Add web crawler job and logic (pending)
+- [ ] Add views (pending) 
 - [ ] Add `faker` gem in order to bulk insert fake `url`s through rake task, for populating db purposes. (Nice to have)
